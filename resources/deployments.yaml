@@ -33,13 +33,13 @@ spec:
             - mountPath: /config
               name: config
             - mountPath: /critical-media
-              name: crtical-media
+              name: critical-media
             - mountPath: /media
               name: media
           resources:
-            requests: 
-              gpu.intel.com/i915: "1" 
-          limits: 
+            requests:
+              gpu.intel.com/i915: "1"
+            limits:
               gpu.intel.com/i915: "1"
       volumes:
       - name: config
