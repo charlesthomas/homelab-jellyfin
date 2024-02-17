@@ -13,7 +13,7 @@ ingExtraAnnotations: ''
 ingHost: dvr.crt.house
 ingName: jellyfin
 ingPathType: Prefix
-ingSecret: ''
+ingSecret: crt.house
 ingWebSockets: true
 ingress: true
 labels: 'app: jellyfin'

@@ -30,3 +30,4 @@ spec:
   tls:
     - hosts:
       - dvr.crt.house
+      secretName: crt.house
