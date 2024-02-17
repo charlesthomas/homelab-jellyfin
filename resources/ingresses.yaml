@@ -1,0 +1,32 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jellyfin
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: dvr.crt.house
+    external-dns.alpha.kubernetes.io/target: crt.house
+    nginx.org/websocket-services: jellyfin
+    gethomepage.dev/href: https://dvr.crt.house
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: Media Streamer
+    gethomepage.dev/group: Media
+    gethomepage.dev/icon: jellyfin
+    gethomepage.dev/name: Jellyfin
+    gethomepage.dev/pod-selector: ""
+spec:
+  ingressClassName: nginx-external
+  rules:
+    - host: "dvr.crt.house"
+      http:
+        paths:
+          - path: "/"
+            pathType: Prefix
+            backend:
+              service:
+                name: jellyfin
+                port:
+                  number: 8096
+  tls:
+    - hosts:
+      - dvr.crt.house

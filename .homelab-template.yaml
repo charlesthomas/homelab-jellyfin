@@ -1,0 +1,44 @@
+_src_path: /home/crthomas/code/charlesthomas/homelab-template
+additionalResources: ''
+backups: false
+helm: false
+homepageDescription: Media Streamer
+homepageEnabled: true
+homepageGroup: Media
+homepageIcon: jellyfin
+homepageName: Jellyfin
+ingClass: nginx-external
+ingCname: crt.house
+ingExtraAnnotations: ''
+ingHost: dvr.crt.house
+ingName: jellyfin
+ingPathType: Prefix
+ingSecret: ''
+ingWebSockets: true
+ingress: true
+labels: 'app: jellyfin'
+name: jellyfin
+namespace: jellyfin
+pvc: true
+pvcAccessMode: ReadWriteMany
+pvcName: jellyfin
+pvcSize: 5Gi
+pvcStorageClass: longhorn-retain
+reloader: false
+resources:
+- deployments.yaml
+- ingresses.yaml
+- pvcs.yaml
+- services.yaml
+service: true
+serviceAccount: false
+svcAccountName: jellyfin
+svcName: jellyfin
+svcPortName: http
+svcPortNum: 8096
+svcProtocol: TCP
+svcSelector: 'app: jellyfin'
+svcTargetPort: http
+svcType: ClusterIP
+upstreamURL: https://jellyfin.org
+url: https://github.com/charlesthomas/homelab-jellyfin

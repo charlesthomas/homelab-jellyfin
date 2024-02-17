@@ -1,0 +1,57 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jellyfin
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jellyfin
+  template:
+    metadata:
+      labels:
+        app: jellyfin
+    spec:
+      containers:
+        - name: jellyfin
+          image: "docker.io/jellyfin/jellyfin:10.6.4"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8096
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: http
+          readinessProbe:
+            tcpSocket:
+              port: http
+          volumeMounts:
+            - mountPath: /config
+              name: config
+            - mountPath: /critical-media
+              name: crtical-media
+            - mountPath: /media
+              name: media
+          resources:
+            requests: 
+              gpu.intel.com/i915: "1" 
+          limits: 
+              gpu.intel.com/i915: "1"
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: jellyfin
+      - name: media
+        nfs:
+          path: /volume1/media
+          readOnly: true
+          server: nas01.crt.house
+      - name: critical-media
+        nfs:
+          path: /volume1/critical/media
+          readOnly: true
+          server: nas01.crt.house
