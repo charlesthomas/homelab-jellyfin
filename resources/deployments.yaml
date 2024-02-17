@@ -49,9 +49,9 @@ spec:
         nfs:
           path: /volume1/media
           readOnly: true
-          server: nas01.crt.house
+          server: 192.168.1.21
       - name: critical-media
         nfs:
           path: /volume1/critical/media
           readOnly: true
-          server: nas01.crt.house
+          server: 192.168.1.21
