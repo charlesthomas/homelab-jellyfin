@@ -1,0 +1,32 @@
+---
+apiVersion: longhorn.io/v1beta2
+kind: RecurringJob
+metadata:
+  name: jellyfin-backup
+  namespace: longhorn
+spec:
+  concurrency: 1
+  cron: 15 0 * * *
+  groups:
+  - jellyfin
+  labels:
+    app: jellyfin
+  name: jellyfin-backup
+  retain: 30
+  task: backup
+---
+apiVersion: longhorn.io/v1beta2
+kind: RecurringJob
+metadata:
+  name: jellyfin-snapshot
+  namespace: longhorn
+spec:
+  concurrency: 1
+  cron: 1 */2 * * *
+  groups:
+  - jellyfin
+  labels:
+    app: jellyfin
+  name: jellyfin-snapshot
+  retain: 100
+  task: snapshot

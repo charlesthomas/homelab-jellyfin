@@ -1,6 +1,6 @@
 _src_path: /Users/crthomas/code/charlesthomas/homelab-template
 additionalResources: ''
-backups: false
+backups: true
 helm: false
 homepageDescription: Media Streamer
 homepageEnabled: true
@@ -26,6 +26,7 @@ pvcSize: 5Gi
 pvcStorageClass: longhorn-retain
 reloader: false
 resources:
+- backups.yaml
 - deployments.yaml
 - ingresses.yaml
 - pvcs.yaml
