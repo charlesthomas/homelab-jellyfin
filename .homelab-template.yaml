@@ -20,7 +20,7 @@ labels: 'app: jellyfin'
 name: jellyfin
 namespace: jellyfin
 pvc: true
-pvcAccessMode: ReadWriteMany
+pvcAccessMode: ReadWriteOnce
 pvcName: jellyfin
 pvcSize: 5Gi
 pvcStorageClass: longhorn-retain
