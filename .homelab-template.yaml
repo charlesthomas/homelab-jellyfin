@@ -1,4 +1,4 @@
-_src_path: /home/crthomas/code/charlesthomas/homelab-template
+_src_path: /Users/crthomas/code/charlesthomas/homelab-template
 additionalResources: ''
 backups: false
 helm: false
