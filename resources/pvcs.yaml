@@ -5,10 +5,10 @@ metadata:
   name: jellyfin
   namespace: jellyfin
 spec:
-    accessModes:
-    - ReadWriteOnce
-    resources:
-      requests:
-        storage: 5Gi
-    storageClassName: longhorn-retain
-    volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: longhorn-retain
+  volumeMode: Filesystem
