@@ -4,10 +4,10 @@ kind: Ingress
 metadata:
   name: jellyfin
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: dvr.crt.house
-    external-dns.alpha.kubernetes.io/target: crt.house
+    external-dns.alpha.kubernetes.io/hostname: dvr.crt.lol
+    external-dns.alpha.kubernetes.io/target: crt.lol
     nginx.org/websocket-services: jellyfin
-    gethomepage.dev/href: https://dvr.crt.house
+    gethomepage.dev/href: https://dvr.crt.lol
     gethomepage.dev/enabled: "true"
     gethomepage.dev/description: Media Streamer
     gethomepage.dev/group: Media
@@ -17,7 +17,7 @@ metadata:
 spec:
   ingressClassName: nginx-external
   rules:
-    - host: "dvr.crt.house"
+    - host: "dvr.crt.lol"
       http:
         paths:
           - path: "/"
@@ -29,5 +29,4 @@ spec:
                   number: 8096
   tls:
     - hosts:
-      - dvr.crt.house
-      secretName: crt.house
+      - dvr.crt.lol

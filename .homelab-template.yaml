@@ -9,12 +9,12 @@ homepageGroup: Media
 homepageIcon: jellyfin
 homepageName: Jellyfin
 ingClass: nginx-external
-ingCname: crt.house
+ingCname: crt.lol
 ingExtraAnnotations: ''
-ingHost: dvr.crt.house
+ingHost: dvr.crt.lol
 ingName: jellyfin
 ingPathType: Prefix
-ingSecret: crt.house
+ingSecret: ''
 ingWebSockets: true
 ingress: true
 labels: 'app: jellyfin'
