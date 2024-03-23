@@ -1,4 +1,4 @@
-_commit: v1.6.2
+_commit: v1.6.18-4-gf354859
 _src_path: /home/crthomas/code/charlesthomas/homelab-template
 additionalResources: ''
 backups: true
@@ -14,7 +14,6 @@ ingExtraAnnotations: ''
 ingHost: dvr.crt.lol
 ingName: jellyfin
 ingPathType: Prefix
-ingSecret: ''
 ingWebSockets: true
 ingress: true
 labels: 'app: jellyfin'
