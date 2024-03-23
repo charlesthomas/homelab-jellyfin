@@ -1,20 +1,15 @@
-_commit: v1.6.2
+_commit: v1.8.1
 _src_path: /home/crthomas/code/charlesthomas/homelab-template
 additionalResources: ''
 backups: true
 helm: false
-homepageDescription: Media Streamer
 homepageEnabled: true
-homepageGroup: Media
-homepageIcon: jellyfin
-homepageName: Jellyfin
 ingClass: nginx-external
 ingCname: crt.lol
 ingExtraAnnotations: ''
 ingHost: dvr.crt.lol
 ingName: jellyfin
 ingPathType: Prefix
-ingSecret: ''
 ingWebSockets: true
 ingress: true
 labels: 'app: jellyfin'
