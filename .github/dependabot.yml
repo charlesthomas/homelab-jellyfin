@@ -4,3 +4,4 @@ updates:
     directory: "/resources/"
     schedule:
       interval: "weekly"
+      day: "friday"
