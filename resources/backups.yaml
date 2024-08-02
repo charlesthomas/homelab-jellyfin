@@ -22,11 +22,11 @@ metadata:
   namespace: longhorn
 spec:
   concurrency: 1
-  cron: 1 */2 * * *
+  cron: 1 * * * *
   groups:
   - jellyfin
   labels:
     app: jellyfin
   name: jellyfin-snapshot
-  retain: 100
+  retain: 48
   task: snapshot
