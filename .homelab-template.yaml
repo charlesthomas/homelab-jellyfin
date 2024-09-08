@@ -1,7 +1,7 @@
 _commit: v1.9.0-1-g02b6330
 _src_path: /home/crthomas/code/charlesthomas/homelab-template
 additionalResources: ''
-backups: true
+backups: false
 helm: false
 homepageDescription: Media Streamer
 homepageEnabled: true
@@ -19,11 +19,7 @@ ingress: true
 labels: 'app: jellyfin'
 name: jellyfin
 namespace: jellyfin
-pvc: true
-pvcAccessMode: ReadWriteOnce
-pvcName: jellyfin
-pvcSize: 5Gi
-pvcStorageClass: longhorn-retain
+pvc: false
 reloader: false
 resources:
 - deployments.yaml
