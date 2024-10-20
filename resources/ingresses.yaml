@@ -7,7 +7,6 @@ metadata:
   annotations:
     external-dns.alpha.kubernetes.io/hostname: dvr.crt.lol
     external-dns.alpha.kubernetes.io/target: crt.lol
-    nginx.org/websocket-services: jellyfin
 spec:
   ingressClassName: nginx-external
   rules:
