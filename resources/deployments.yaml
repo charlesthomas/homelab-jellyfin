@@ -19,6 +19,9 @@ spec:
         - name: jellyfin
           image: "docker.io/jellyfin/jellyfin:10.8.13"
           imagePullPolicy: IfNotPresent
+          env:
+            - name: DOTNET_USE_POLLING_FILE_WATCHER
+              value: "1"
           ports:
             - name: http
               containerPort: 8096
