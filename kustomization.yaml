@@ -12,6 +12,7 @@ resources:
 - resources/deployments.yaml
 - resources/ingresses.yaml
 - resources/namespaces.yaml
+- resources/pvcs.yaml
 - resources/services.yaml
 patches:
 - patch: |-
