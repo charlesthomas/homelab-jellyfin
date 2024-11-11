@@ -33,8 +33,6 @@ spec:
             tcpSocket:
               port: http
           volumeMounts:
-            - mountPath: /old
-              name: old
             - mountPath: /config
               name: config
             - mountPath: /critical-media
@@ -47,10 +45,6 @@ spec:
             limits:
               gpu.intel.com/i915: "1"
       volumes:
-      - name: old
-        nfs:
-          path: /volume1/k3s/jellyfin
-          server: 192.168.1.21
       - name: config
         persistentVolumeClaim:
           claimName: jellyfin
