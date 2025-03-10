@@ -13,6 +13,12 @@ resources:
 - resources/ingresses.yaml
 - resources/namespaces.yaml
 - resources/services.yaml
+
+images:
+  - name: jellyfin
+    newName: docker.io/jellyfin/jellyfin
+    newTag: 10.8.13
+
 patches:
 - patch: |-
     apiVersion: networking.k8s.io/v1

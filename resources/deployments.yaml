@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: jellyfin
-          image: "docker.io/jellyfin/jellyfin:10.8.13"
+          image: jellyfin
           imagePullPolicy: IfNotPresent
           env:
             - name: DOTNET_USE_POLLING_FILE_WATCHER
