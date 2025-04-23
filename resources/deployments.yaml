@@ -21,6 +21,10 @@ spec:
           env:
             - name: DOTNET_USE_POLLING_FILE_WATCHER
               value: "1"
+            - name: JELLYFIN_FFmpeg__probesize
+              value: "2G"
+            - name: JELLYFIN_FFmpeg__analyzeduration
+              value: "500M"
           ports:
             - name: http
               containerPort: 8096
