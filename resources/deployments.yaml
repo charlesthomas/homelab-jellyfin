@@ -38,8 +38,6 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: config
-            - mountPath: /old
-              name: old
             - mountPath: /media
               name: media
           resources:
@@ -52,10 +50,6 @@ spec:
       - name: config
         persistentVolumeClaim:
           claimName: jellyfin
-      - name: old
-        nfs:
-          path: /volume1/critical/k3s/jellyfin
-          server: 192.168.1.21
       - name: media
         nfs:
           path: /volume1/media
