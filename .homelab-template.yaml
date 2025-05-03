@@ -24,6 +24,7 @@ reloader: false
 resources:
 - deployments.yaml
 - ingresses.yaml
+- pvcs.yaml
 - services.yaml
 service: true
 serviceAccount: false
