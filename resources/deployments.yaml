@@ -36,9 +36,9 @@ spec:
             tcpSocket:
               port: http
           volumeMounts:
-            - mountPath: /new
-              name: config
             - mountPath: /config
+              name: config
+            - mountPath: /old
               name: old
             - mountPath: /media
               name: media
