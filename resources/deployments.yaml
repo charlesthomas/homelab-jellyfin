@@ -30,11 +30,13 @@ spec:
               containerPort: 8096
               protocol: TCP
           livenessProbe:
-            tcpSocket:
-              port: http
+            httpGet:
+              path: /health
+              port: 8096
           readinessProbe:
-            tcpSocket:
-              port: http
+            httpGet:
+              path: /health
+              port: 8096
           volumeMounts:
             - mountPath: /config
               name: config
