@@ -34,6 +34,8 @@ spec:
               value: "2G"
             - name: JELLYFIN_FFmpeg__analyzeduration
               value: "500M"
+            - name: TZ
+              value: America/Detroit
           ports:
             - name: http
               containerPort: 8096
