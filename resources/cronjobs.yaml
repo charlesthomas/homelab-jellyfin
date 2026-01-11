@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: jellyfin-backup
+  namespace: jellyfin
+spec:
+  schedule: "0 5 * * 1"  # Runs Mondays at 5 AM
+  timeZone: "America/Detroit"
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: backup
+            image: curlimages/curl:latest
+            command:
+            - /bin/sh
+            - -c
+            - |
+              curl -v 'http://jellyfin.jellyfin.svc.cluster.local:8096/Backup/Create' \
+                -X POST \
+                -H 'Content-Type: application/json' \
+                -H "X-Emby-Token: ${JELLYFIN_TOKEN}" \
+                --data-raw '{"Metadata":false,"Trickplay":false,"Subtitles":false}'
+            env:
+            - name: JELLYFIN_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: jellyfin-backup-cron-token
+                  key: token

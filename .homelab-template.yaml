@@ -22,7 +22,9 @@ namespace: jellyfin
 pvc: false
 reloader: false
 resources:
+- cronjobs.yaml
 - deployments.yaml
+- external-secrets.yaml
 - ingresses.yaml
 - pvcs.yaml
 - services.yaml
