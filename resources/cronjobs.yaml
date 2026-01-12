@@ -30,5 +30,5 @@ spec:
             - name: JELLYFIN_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: jellyfin-backup-cron-token
+                  name: jellyfin-backup-token
                   key: token
