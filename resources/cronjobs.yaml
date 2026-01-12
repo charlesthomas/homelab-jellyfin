@@ -21,7 +21,7 @@ spec:
             - /bin/sh
             - -c
             - |
-              curl -v 'http://jellyfin.jellyfin.svc.cluster.local:8096/Backup/Create' \
+              curl 'http://jellyfin.jellyfin.svc.cluster.local:8096/Backup/Create' \
                 -X POST \
                 -H 'Content-Type: application/json' \
                 -H "X-Emby-Token: ${JELLYFIN_TOKEN}" \
