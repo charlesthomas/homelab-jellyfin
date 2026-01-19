@@ -20,7 +20,7 @@ resources:
 images:
   - name: jellyfin
     newName: docker.io/jellyfin/jellyfin
-    newTag: 10.11.5
+    newTag: 10.11.6
 
 patches:
 - patch: |-
