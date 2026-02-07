@@ -1,3 +1,4 @@
+---
 apiVersion: batch/v1
 kind: CronJob
 metadata:
@@ -31,4 +32,70 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: jellyfin-backup-token
+                  key: token
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: scan-movies
+  namespace: jellyfin
+spec:
+  schedule: "0 2 * * *"
+  timeZone: "America/Detroit"
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: scan
+            image: curlimages/curl:latest
+            command:
+            - /bin/sh
+            - -c
+            - |
+                curl -v -X POST \
+                -H "Authorization: MediaBrowser Token=\"${JELLYFIN_TOKEN}\"" \
+                'https://dvr.crt.lol/Items/c16d84f68f1176215132ab04f80bd4de/Refresh?Recursive=true&ImageRefreshMode=Default&MetadataRefreshMode=Default&ReplaceAllImages=false&RegenerateTrickplay=false&ReplaceAllMetadata=false'
+            env:
+            - name: JELLYFIN_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: scan-token
+                  key: token
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: scan-shows
+  namespace: jellyfin
+spec:
+  schedule: "0 3 * * *"
+  timeZone: "America/Detroit"
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: scan
+            image: curlimages/curl:latest
+            command:
+            - /bin/sh
+            - -c
+            - |
+                curl -v -X POST \
+                -H "Authorization: MediaBrowser Token=\"${JELLYFIN_TOKEN}\"" \
+                'https://dvr.crt.lol/Items/88953ef7ce7a5a428717b7e99a9d1dd9/Refresh?Recursive=true&ImageRefreshMode=Default&MetadataRefreshMode=Default&ReplaceAllImages=false&RegenerateTrickplay=false&ReplaceAllMetadata=false'
+            env:
+            - name: JELLYFIN_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: scan-token
                   key: token
