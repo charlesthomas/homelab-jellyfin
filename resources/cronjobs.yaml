@@ -59,7 +59,7 @@ spec:
             - |
                 curl -v -X POST \
                 -H "Authorization: MediaBrowser Token=\"${JELLYFIN_TOKEN}\"" \
-                'https://dvr.crt.lol/Items/c16d84f68f1176215132ab04f80bd4de/Refresh?Recursive=true&ImageRefreshMode=Default&MetadataRefreshMode=Default&ReplaceAllImages=false&RegenerateTrickplay=false&ReplaceAllMetadata=false'
+                'https://dvr.crt.lol/Items/f137a2dd21bbc1b99aa5c0f6bf02a805/Refresh?Recursive=true&ImageRefreshMode=Default&MetadataRefreshMode=Default&ReplaceAllImages=false&RegenerateTrickplay=false&ReplaceAllMetadata=false'
             env:
             - name: JELLYFIN_TOKEN
               valueFrom:
@@ -92,7 +92,7 @@ spec:
             - |
                 curl -v -X POST \
                 -H "Authorization: MediaBrowser Token=\"${JELLYFIN_TOKEN}\"" \
-                'https://dvr.crt.lol/Items/88953ef7ce7a5a428717b7e99a9d1dd9/Refresh?Recursive=true&ImageRefreshMode=Default&MetadataRefreshMode=Default&ReplaceAllImages=false&RegenerateTrickplay=false&ReplaceAllMetadata=false'
+                'https://dvr.crt.lol/Items/4514ec850e5ad0c47b58444e17b6346c/Refresh?Recursive=true&ImageRefreshMode=Default&MetadataRefreshMode=Default&ReplaceAllImages=false&RegenerateTrickplay=false&ReplaceAllMetadata=false'
             env:
             - name: JELLYFIN_TOKEN
               valueFrom:
