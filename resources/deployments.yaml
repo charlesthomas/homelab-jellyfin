@@ -58,7 +58,7 @@ spec:
               gpu.intel.com/i915: "1"
             limits:
               gpu.intel.com/i915: "1"
-              memory: 4Gi
+              memory: 12Gi
       volumes:
       - name: config
         persistentVolumeClaim:
