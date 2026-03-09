@@ -7,8 +7,8 @@ metadata:
 spec:
   schedule: "0 5 * * *"
   timeZone: "America/Detroit"
-  successfulJobsHistoryLimit: 3
-  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -42,8 +42,8 @@ metadata:
 spec:
   schedule: "0 2 * * *"
   timeZone: "America/Detroit"
-  successfulJobsHistoryLimit: 3
-  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -75,8 +75,8 @@ metadata:
 spec:
   schedule: "0 3 * * *"
   timeZone: "America/Detroit"
-  successfulJobsHistoryLimit: 3
-  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
