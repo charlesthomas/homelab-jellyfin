@@ -5,8 +5,10 @@ namespace: jellyfin
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-jellyfin
-commonLabels:
-  app: jellyfin
+labels:
+- includeSelectors: true
+  pairs:
+    app: jellyfin
 
 resources:
 - resources/cronjobs.yaml

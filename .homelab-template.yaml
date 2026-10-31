@@ -1,7 +1,7 @@
-_commit: v1.12.1-12-g09a8ce4
+_commit: v1.12.1-15-g9a273fc
 _src_path: /Users/crthomas/code/charlesthomas/homelab-template
 additionalResources: ''
-backups: false
+cnpg: false
 helm: false
 homepageDescription: Media Streamer
 homepageEnabled: true
