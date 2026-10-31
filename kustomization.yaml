@@ -5,8 +5,10 @@ namespace: jellyfin
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-jellyfin
-commonLabels:
-  app: jellyfin
+labels:
+- includeSelectors: true
+  pairs:
+    app: jellyfin
 
 resources:
 - resources/cronjobs.yaml
@@ -39,3 +41,11 @@ patches:
         gethomepage.dev/pod-selector: ""
   target:
     kind: Ingress
+configMapGenerator:
+- name: grafana-dashboard-jellyfin
+  files:
+  - grafana/jellyfin.json
+  options:
+    disableNameSuffixHash: true
+    labels:
+      grafana_dashboard: "1"
