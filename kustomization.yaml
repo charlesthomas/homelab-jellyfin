@@ -41,6 +41,7 @@ patches:
         gethomepage.dev/pod-selector: ""
   target:
     kind: Ingress
+
 configMapGenerator:
 - name: grafana-dashboard-jellyfin
   files:
@@ -49,3 +50,6 @@ configMapGenerator:
     disableNameSuffixHash: true
     labels:
       grafana_dashboard: "1"
+- name: cleanup-youtube
+  files:
+  - scripts/cleanup-youtube.py

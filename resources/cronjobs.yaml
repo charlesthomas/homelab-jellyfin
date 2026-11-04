@@ -99,3 +99,54 @@ spec:
                 secretKeyRef:
                   name: scan-token
                   key: token
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cleanup-youtube
+  namespace: jellyfin
+spec:
+  schedule: "0 4 * * *"
+  timeZone: "America/Detroit"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: cleanup-youtube
+            image: python:3.13-alpine
+            command:
+            - python3
+            - /scripts/cleanup-youtube.py
+            env:
+            - name: JELLYFIN_URL
+              value: http://jellyfin.jellyfin.svc.cluster.local:8096
+            - name: JELLYFIN_LIBRARY_ID
+              value: 34f331a89ce405e2b877d68d5ee4d4a2
+            - name: JELLYFIN_USER_ID
+              value: 18f3c9214dd34f16a6546ee6ffcec1c1
+            - name: MEDIA_ROOT
+              value: /media/youtube
+            - name: JELLYFIN_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: scan-token
+                  key: token
+            volumeMounts:
+            - name: scripts
+              mountPath: /scripts
+              readOnly: true
+            - name: youtube
+              mountPath: /media/youtube
+          volumes:
+          - name: scripts
+            configMap:
+              name: cleanup-youtube
+          - name: youtube
+            nfs:
+              path: /volume1/media/youtube
+              server: 192.168.1.21
