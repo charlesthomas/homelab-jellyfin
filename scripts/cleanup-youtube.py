@@ -62,7 +62,7 @@ def files_to_delete(video):
     return matches
 
 
-def main():
+def cleanup():
     deleted = 0
     for item in watched_unfavorited():
         raw = item.get("Path")
@@ -80,9 +80,13 @@ def main():
             print(f"delete {f}")
             f.unlink()
         deleted += 1
-
     print(f"{deleted} video(s) removed")
-    if deleted:
+
+
+def main():
+    try:
+        cleanup()
+    finally:
         api("POST", f"/Items/{LIBRARY_ID}/Refresh", {
             "Recursive": "true",
             "ImageRefreshMode": "Default",
